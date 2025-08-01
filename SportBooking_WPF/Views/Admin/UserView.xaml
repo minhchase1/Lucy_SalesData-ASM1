@@ -1,0 +1,51 @@
+﻿<Window x:Class="SportBooking_WPF.Views.Admin.UserView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             Title="UserView"
+             d:DesignHeight="450" d:DesignWidth="800"
+         WindowStartupLocation="CenterScreen" Background="#2E8B57">
+    <Grid Margin="20">
+        <StackPanel>
+            <TextBlock Text="👤 Quản lý người dùng" FontSize="20" FontWeight="Bold" Margin="0 0 0 10"/>
+            <StackPanel Orientation="Horizontal" Margin="10">
+                <TextBox x:Name="txtSearch" Width="200" Height="25" Margin="0,0,10,0" 
+             VerticalContentAlignment="Center" 
+              />
+                <Button Content="Tìm kiếm" Width="80" Height="25" Click="BtnSearch_Click"/>
+            </StackPanel>
+
+
+
+            <DataGrid x:Name="dgUsers" AutoGenerateColumns="False" Height="267"
+                      CanUserAddRows="False" IsReadOnly="True" SelectionMode="Single">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="ID" Binding="{Binding UserId}" Width="60"/>
+                    <DataGridTextColumn Header="Họ tên" Binding="{Binding FullName}" Width="*"/>
+                    <DataGridTextColumn Header="Email" Binding="{Binding Email}" Width="*"/>
+                    <DataGridTextColumn Header="SĐT" Binding="{Binding Phone}" Width="100"/>
+                    <DataGridTextColumn Header="Ngày Sinh" Binding="{Binding Dob, StringFormat={}{0:dd/MM/yyyy}}" Width="100"/>
+                    <DataGridTextColumn Header="Địa chỉ" Binding="{Binding Address}" Width="150"/>
+                    <DataGridTextColumn Header="Tạo lúc" Binding="{Binding CreatedAt, StringFormat={}{0:dd/MM/yyyy HH:mm}}" Width="140"/>
+
+                    <DataGridTemplateColumn Header="" Width="150">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                    <Button Content="Sửa" Width="50" Height="25" Margin="0 0 5 0"
+                                            Click="BtnEditUser_Click" Tag="{Binding}" />
+                                    <Button Content="Xoá" Width="50" Height="25"
+                                            Click="BtnDeleteUser_Click" Tag="{Binding}" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Button Content="⬅ Thoát về Admin" Width="150" Height="30" Margin="0 10 0 0"
+        Click="BtnBack_Click" HorizontalAlignment="Left"/>
+        </StackPanel>
+    </Grid>
+</Window>

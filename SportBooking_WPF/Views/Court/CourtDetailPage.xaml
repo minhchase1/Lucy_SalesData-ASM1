@@ -1,0 +1,28 @@
+﻿<Page x:Class="SportBooking_WPF.Views.Court.CourtDetailPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SportBooking_WPF.Views.Court"
+        mc:Ignorable="d"
+      Background="#F0F0F0"
+        Title="CourtDetailPage" Height="450" Width="800">
+    <Grid Margin="30">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Hình sân -->
+        <Image x:Name="CourtImage" Grid.Column="0" Source="/Resources/Images/default-court.jpg" Stretch="UniformToFill" Margin="10"/>
+
+
+        <!-- Thông tin sân -->
+        <StackPanel Grid.Column="1" Margin="20" VerticalAlignment="Top">
+            <TextBlock x:Name="txtCourtName" FontSize="24" FontWeight="Bold" Margin="0 0 0 10"/>
+            <TextBlock x:Name="txtLocation" FontSize="16" Margin="0 0 0 10"/>
+            <TextBlock x:Name="txtPrice" FontSize="16" Margin="0 0 0 20"/>
+            <Button Content="Đặt sân ngay" Width="150" Height="40" Background="#2E8B57" Foreground="White" Click="BookCourt_Click"/>
+        </StackPanel>
+    </Grid>
+</Page>

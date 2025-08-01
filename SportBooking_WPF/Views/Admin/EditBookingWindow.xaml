@@ -1,0 +1,41 @@
+﻿<Window x:Class="SportBooking_WPF.Views.Admin.EditBookingWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SportBooking_WPF.Views.Admin"
+        mc:Ignorable="d"
+        Title="EditBookingWindow" Height="450" Width="800" Background="LightGoldenrodYellow" WindowStartupLocation="CenterScreen">
+    <Grid Margin="10,10,0,0" Height="440" VerticalAlignment="Top">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Người dùng:" Grid.Row="0" />
+        <ComboBox x:Name="cbUsers" Grid.Row="0" Margin="100,0,0,0"
+                  Width="250" DisplayMemberPath="FullName" SelectedValuePath="UserId"/>
+
+        <TextBlock Text="Sân:" Grid.Row="1" Margin="0,10,0,0"/>
+        <ComboBox x:Name="cbCourts" Grid.Row="1" Margin="100,10,0,0"
+                  Width="250" DisplayMemberPath="CourtName" SelectedValuePath="CourtId"/>
+
+        <TextBlock Text="Ngày đặt:" Grid.Row="2" Margin="0,10,0,0"/>
+        <DatePicker x:Name="dpBookingDate" Grid.Row="2" Margin="100,10,0,0" Width="250"/>
+
+        <TextBlock Text="Giờ bắt đầu (HH:mm):" Grid.Row="3" Margin="0,10,0,0"/>
+        <TextBox x:Name="txtStartTime" Grid.Row="3" Margin="150,10,0,0" Width="200"/>
+
+        <TextBlock Text="Giờ kết thúc (HH:mm):" Grid.Row="4" Margin="0,10,0,0"/>
+        <TextBox x:Name="txtEndTime" Grid.Row="4" Margin="150,10,0,0" Width="200"/>
+
+
+        <Button Content="Lưu" Width="80" Margin="485,17,215,245" Click="BtnSave_Click" Grid.Row="5"/>
+        <Button Content="Huỷ" Width="80" Click="BtnCancel_Click" Margin="598,17,102,245" Grid.Row="5"/>
+
+    </Grid>
+</Window>

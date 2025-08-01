@@ -1,0 +1,70 @@
+﻿<Window x:Class="SportBooking_WPF.Views.Tournament.ViewRegistrationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Xem đơn đăng ký"
+        Height="450"
+        Width="901"
+        WindowStartupLocation="CenterScreen"
+        Background="#2E8B57">
+
+    <DockPanel Margin="10" LastChildFill="True">
+
+        <!-- Top: Combobox chọn giải đấu -->
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0,0,0,10">
+            <TextBlock Text="Giải đấu:" Foreground="White" VerticalAlignment="Center" Margin="0,0,5,0"/>
+            <ComboBox x:Name="cbTournaments"
+                      Visibility="Collapsed"
+                      DisplayMemberPath="Title"
+                      SelectionChanged="cbTournaments_SelectionChanged"
+                      Margin="0,0,0,0"
+                      Width="200"/>
+        </StackPanel>
+
+        <!-- Bottom: Nút huỷ đăng ký -->
+        <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,0,0">
+            <Button Content="Hủy đăng ký"
+                    x:Name="btnCancelRegistration"
+                    Click="btnCancelRegistration_Click"
+                    Width="120"
+                    Height="32"
+                    Background="#CD5C5C"
+                    Foreground="White"
+                    FontWeight="Bold"
+                    BorderBrush="#B22222"
+                    Padding="5,2"/>
+        </StackPanel>
+
+        <!-- Center: Bảng dữ liệu -->
+        <Border Background="White" CornerRadius="8" Padding="5">
+            <DataGrid x:Name="dgMyRegistrations"
+                      AutoGenerateColumns="False"
+                      IsReadOnly="True"
+                      SelectionMode="Single"
+                      AlternatingRowBackground="#FAFAFA"
+                      HeadersVisibility="Column"
+                      BorderThickness="0"
+                      GridLinesVisibility="Horizontal"
+                      HorizontalGridLinesBrush="#DDD">
+                <DataGrid.ColumnHeaderStyle>
+                    <Style TargetType="DataGridColumnHeader">
+                        <Setter Property="Background" Value="#3CB371"/>
+                        <Setter Property="Foreground" Value="White"/>
+                        <Setter Property="FontWeight" Value="Bold"/>
+                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                        <Setter Property="Padding" Value="5"/>
+                    </Style>
+                </DataGrid.ColumnHeaderStyle>
+
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="ID" Binding="{Binding RegistrationId}" Width="50"/>
+                    <DataGridTextColumn Header="Người đăng ký" Binding="{Binding User.FullName}" Width="150"/>
+                    <DataGridTextColumn Header="Tên giải" Binding="{Binding Tournament.Title}" Width="150"/>
+                    <DataGridTextColumn Header="Ngày đăng ký" Binding="{Binding RegisterDate, StringFormat='{}{0:dd/MM/yyyy}'}" Width="120"/>
+                    <DataGridTextColumn Header="Tên đội" Binding="{Binding TeamName}" Width="150"/>
+                    <DataGridTextColumn Header="Số thành viên" Binding="{Binding NumberOfMembers}" Width="100"/>
+                    <DataGridTextColumn Header="Trạng thái" Binding="{Binding Status}" Width="100"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Border>
+    </DockPanel>
+</Window>

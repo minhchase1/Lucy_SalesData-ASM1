@@ -1,0 +1,68 @@
+﻿<Window x:Class="SportBooking_WPF.Views.Tournament.TournamentRequestApprovalWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Duyệt đơn yêu cầu tổ chức giải đấu"
+        Height="600" Width="1000"
+        WindowStartupLocation="CenterScreen"
+        Background="#FAFAFA">
+
+    <DockPanel Margin="20">
+
+        <!-- Tiêu đề -->
+        <TextBlock Text="Danh sách đơn yêu cầu tổ chức giải đấu"
+                   FontSize="22" FontWeight="Bold"
+                   Foreground="#2E8B57"
+                   HorizontalAlignment="Center"
+                   DockPanel.Dock="Top"
+                   Margin="0 0 0 20"/>
+
+        <!-- Nút xử lý -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,0,10" DockPanel.Dock="Bottom">
+            <Button Content="✔ Duyệt đơn"
+                    Click="ApproveSelected_Click"
+                    Background="#2E8B57" Foreground="White"
+                    Padding="10,5" Margin="5" Width="120"/>
+            <Button Content="✖ Từ chối đơn"
+                    Click="RejectSelected_Click"
+                    Background="#B22222" Foreground="White"
+                    Padding="10,5" Margin="5" Width="120"/>
+        </StackPanel>
+
+        <!-- Danh sách đơn -->
+        <DataGrid x:Name="dgRequests"
+                  AutoGenerateColumns="False"
+                  CanUserAddRows="False"
+                  IsReadOnly="True"
+                  HeadersVisibility="Column"
+                  SelectionMode="Single"
+                  SelectionUnit="FullRow"
+                  AlternatingRowBackground="#F0FFF0"
+                  GridLinesVisibility="Horizontal"
+                  RowHeaderWidth="0"
+                  Margin="0,0,0,10"
+                  ColumnHeaderHeight="35"
+                  FontSize="14"
+                  BorderBrush="#D0D0D0"
+                  BorderThickness="1">
+
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="DataGridColumnHeader">
+                    <Setter Property="Background" Value="#2E8B57"/>
+                    <Setter Property="Foreground" Value="White"/>
+                    <Setter Property="FontWeight" Value="SemiBold"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding RequestId}" Width="50"/>
+                <DataGridTextColumn Header="Người gửi" Binding="{Binding User.FullName}" Width="2*"/>
+                <DataGridTextColumn Header="Tên giải đấu" Binding="{Binding Title}" Width="3*"/>
+                <DataGridTextColumn Header="Môn thể thao" Binding="{Binding Sport.SportName}" Width="2*"/>
+                <DataGridTextColumn Header="Ngày gửi" Binding="{Binding RequestDate, StringFormat=dd/MM/yyyy}" Width="1.5*"/>
+                <DataGridTextColumn Header="Số lượng tối đa" Binding="{Binding MaxParticipants}" Width="1.5*"/>
+                <DataGridTextColumn Header="Trạng thái" Binding="{Binding Status}" Width="1.5*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </DockPanel>
+</Window>

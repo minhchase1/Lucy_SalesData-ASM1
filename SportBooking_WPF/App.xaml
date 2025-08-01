@@ -1,0 +1,11 @@
+﻿<Application x:Class="SportBooking_WPF.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:SportBooking_WPF"
+             StartupUri="Views/User/WelcomeWindow.xaml">
+    <Application.Resources>
+        <FontFamily x:Key="SportFont">pack://application:,,,/Resources/Fonts/#Bebas Neue</FontFamily>
+    </Application.Resources>
+    
+    
+</Application>

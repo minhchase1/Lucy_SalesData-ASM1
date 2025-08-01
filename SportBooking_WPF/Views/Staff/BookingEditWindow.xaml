@@ -1,0 +1,79 @@
+﻿<Window x:Class="SportBooking_WPF.Views.Staff.BookingEditWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Booking Form" Height="480" Width="500"
+        WindowStartupLocation="CenterOwner"
+        Background="#F0FFF0">
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <!-- Title -->
+            <RowDefinition Height="Auto"/>
+            <!-- Customer Name -->
+            <RowDefinition Height="Auto"/>
+            <!-- Checkbox -->
+            <RowDefinition Height="Auto"/>
+            <!-- Court -->
+            <RowDefinition Height="Auto"/>
+            <!-- Booking Date -->
+            <RowDefinition Height="Auto"/>
+            <!-- Start Time -->
+            <RowDefinition Height="Auto"/>
+            <!-- End Time -->
+            <RowDefinition Height="*"/>
+            <!-- Spacer -->
+            <RowDefinition Height="Auto"/>
+            <!-- Buttons -->
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="130"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Title -->
+        <TextBlock Grid.Row="0" Grid.ColumnSpan="2"
+                   Text="Booking Form"
+                   FontSize="24" FontWeight="Bold"
+                   HorizontalAlignment="Center"
+                   Foreground="#2E8B57"
+                   Margin="0 0 0 20"/>
+
+        <!-- Customer -->
+        <TextBlock Text="Customer:" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Margin="0 5" Foreground="#006400"/>
+        <ComboBox x:Name="cbUser"
+          Grid.Row="1" Grid.Column="1" Margin="0 5"
+          DisplayMemberPath="FullName"
+          SelectedValuePath="UserId"
+          Background="WhiteSmoke"
+          BorderBrush="#2E8B57"/>
+        
+        <!-- Court -->
+        <TextBlock Text="Court:" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" Margin="0 5" Foreground="#006400"/>
+        <ComboBox x:Name="cbCourt" Grid.Row="3" Grid.Column="1" Margin="0 5" Background="WhiteSmoke" BorderBrush="#2E8B57"/>
+
+        <!-- Booking Date -->
+        <TextBlock Text="Booking Date:" Grid.Row="4" Grid.Column="0" VerticalAlignment="Center" Margin="0 5" Foreground="#006400"/>
+        <DatePicker x:Name="dpBookingDate" Grid.Row="4" Grid.Column="1" Margin="0 5" BorderBrush="#2E8B57"/>
+
+        <!-- Start Time -->
+        <TextBlock Text="Start Time (HH:mm):" Grid.Row="5" Grid.Column="0" VerticalAlignment="Center" Margin="0 5" Foreground="#006400"/>
+        <TextBox x:Name="txtStartTime" Grid.Row="5" Grid.Column="1" Margin="0 5" Background="White" BorderBrush="#2E8B57"/>
+
+        <!-- End Time -->
+        <TextBlock Text="End Time (HH:mm):" Grid.Row="6" Grid.Column="0" VerticalAlignment="Center" Margin="0 5" Foreground="#006400"/>
+        <TextBox x:Name="txtEndTime" Grid.Row="6" Grid.Column="1" Margin="0 5" Background="White" BorderBrush="#2E8B57"/>
+
+        <!-- Buttons -->
+        <StackPanel Orientation="Horizontal" Grid.Row="8" Grid.ColumnSpan="2" HorizontalAlignment="Center" Margin="0 20 0 0">
+            <Button x:Name="btnSave" Content="Save"
+                    Width="80" Margin="5" Height="36"
+                    Background="#32CD32" Foreground="White" BorderBrush="#228B22" Click="btnSave_Click"/>
+
+            <Button x:Name="btnCancel" Content="Cancel"
+                    Width="80" Margin="5" Height="36"
+                    Background="#90EE90" Foreground="Black" BorderBrush="#2E8B57" Click="btnCancel_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

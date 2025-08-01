@@ -1,0 +1,142 @@
+﻿<Window x:Class="SportBooking_WPF.Views.Tournament.TournamentRequestWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Đơn đăng ký tổ chức giải đấu"
+        Height="750"
+        Width="600"
+        WindowStartupLocation="CenterScreen"
+        Background="#F0FFF0">
+
+    <DockPanel Margin="20">
+
+        <!-- Tiêu đề -->
+        <TextBlock Text="📋 Đơn đăng ký tổ chức giải đấu"
+                   FontSize="24"
+                   FontWeight="Bold"
+                   Foreground="#2E8B57"
+                   HorizontalAlignment="Center"
+                   Margin="0 0 0 20"
+                   DockPanel.Dock="Top"/>
+
+        <!-- Nút gửi -->
+        <Button Content="📨 Gửi yêu cầu"
+                Height="45"
+                Background="#2E8B57"
+                Foreground="White"
+                FontWeight="Bold"
+                HorizontalAlignment="Center"
+                Width="180"
+                Margin="0 20 0 0"
+                Click="SubmitRequest_Click"
+                DockPanel.Dock="Bottom"/>
+
+        <!-- Nội dung -->
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <StackPanel>
+
+                <Grid Margin="0 0 0 10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="180"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="👤 Người gửi:" VerticalAlignment="Center"/>
+                    <TextBox x:Name="txtUserName" Grid.Column="1" IsReadOnly="True" Background="#EEEEEE" Height="30"/>
+                </Grid>
+
+                <Grid Margin="0 0 0 10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="180"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="🏆 Tên giải đấu:" VerticalAlignment="Center"/>
+                    <TextBox x:Name="txtTitle" Grid.Column="1" Height="30"/>
+                </Grid>
+
+                <Grid Margin="0 0 0 10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="180"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="🎯 Môn thể thao:" VerticalAlignment="Center"/>
+                    <ComboBox x:Name="cbSport" Grid.Column="1" Height="30"
+                              DisplayMemberPath="SportName"
+                              SelectedValuePath="SportId"/>
+                </Grid>
+
+                <Grid Margin="0 0 0 10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="180"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="📌 Mô tả:" VerticalAlignment="Top"/>
+                    <TextBox x:Name="txtDescription" Grid.Column="1" Height="60" AcceptsReturn="True" TextWrapping="Wrap"/>
+                </Grid>
+
+                <Grid Margin="0 0 0 10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="180"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="📍 Địa điểm:" VerticalAlignment="Center"/>
+                    <TextBox x:Name="txtLocation" Grid.Column="1" Height="30"/>
+                </Grid>
+
+                <Grid Margin="0 0 0 10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="180"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="👨‍👩‍👧‍👦 Số lượng tối đa:" VerticalAlignment="Center"/>
+                    <TextBox x:Name="txtMaxParticipants" Grid.Column="1" Height="30"/>
+                </Grid>
+
+                <Grid Margin="0 0 0 10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="180"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="📅 Ngày bắt đầu:" VerticalAlignment="Center"/>
+                    <DatePicker x:Name="dpStartDate" Grid.Column="1"/>
+                </Grid>
+
+                <Grid Margin="0 0 0 10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="180"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="📅 Ngày kết thúc:" VerticalAlignment="Center"/>
+                    <DatePicker x:Name="dpEndDate" Grid.Column="1"/>
+                </Grid>
+
+                <Grid Margin="0 0 0 10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="180"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="⏰ Hạn đăng ký:" VerticalAlignment="Center"/>
+                    <DatePicker x:Name="dpDeadline" Grid.Column="1"/>
+                </Grid>
+
+                <Grid Margin="0 0 0 10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="180"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="👥 Thi đấu theo đội:" VerticalAlignment="Center"/>
+                    <CheckBox x:Name="chkIsTeamBased" Grid.Column="1" VerticalAlignment="Center"/>
+                </Grid>
+
+                <Grid Margin="0 0 0 10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="180"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="📖 Luật thi đấu:" VerticalAlignment="Top"/>
+                    <TextBox x:Name="txtRules" Grid.Column="1" Height="60" AcceptsReturn="True" TextWrapping="Wrap"/>
+                </Grid>
+
+            </StackPanel>
+        </ScrollViewer>
+
+    </DockPanel>
+</Window>

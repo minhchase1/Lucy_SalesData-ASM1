@@ -1,0 +1,85 @@
+﻿<Page x:Class="SportBooking_WPF.Views.Booking.CourtBookingPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SportBooking_WPF.Views.Booking"
+        mc:Ignorable="d"   Background="#2E8B57"
+        Title="BookingWindow" Height="Auto" Width="800">
+    <Grid Margin="30">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Hình ảnh sân -->
+        <Image x:Name="imgCourt"
+         Grid.Column="0"
+         Margin="10"
+         Stretch="UniformToFill" 
+         HorizontalAlignment="Center"
+         VerticalAlignment="Top"/>
+
+
+        <!-- Form thông tin đặt sân -->
+        <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto">
+            <StackPanel Grid.Column="1" Margin="20" VerticalAlignment="Top">
+            <TextBlock Text="Đặt sân" FontSize="24" FontWeight="Bold"
+                       Margin="0 0 0 20" Foreground="White" />
+            
+            <TextBlock Text="Tên người đặt:"/>
+            <TextBox x:Name="txtboxBookerName" Margin="0 0 0 10"
+             IsReadOnly="True"/>
+
+            <TextBlock Text="Tên sân:" Foreground="White"/>
+            <TextBox x:Name="txtboxCourtName" 
+                     IsReadOnly="True" Margin="0 0 0 10"/>
+
+
+
+
+            <TextBlock Text="Ngày đặt sân:" Foreground="White"/>
+            <DatePicker x:Name="dpDate" Margin="0 0 0 10" SelectedDate="{Binding BookingDate}"/>
+
+            <TextBlock Text="Thời gian bắt đầu:" Foreground="White"/>
+            <ComboBox x:Name="cbStartTime" Margin="0 0 0 10" SelectionChanged="cbStartTime_SelectionChanged">
+                <ComboBoxItem Content="06:00"/>
+                <ComboBoxItem Content="07:00"/>
+                <ComboBoxItem Content="08:00"/>
+                <ComboBoxItem Content="09:00"/>
+                <ComboBoxItem Content="10:00"/>
+                <ComboBoxItem Content="11:00"/>
+                <ComboBoxItem Content="12:00"/>
+                <ComboBoxItem Content="13:00"/>
+                <ComboBoxItem Content="14:00"/>
+                <ComboBoxItem Content="15:00"/>
+                <ComboBoxItem Content="16:00"/>
+                <ComboBoxItem Content="17:00"/>
+                <ComboBoxItem Content="18:00"/>
+                <ComboBoxItem Content="19:00"/>
+                <ComboBoxItem Content="20:00"/>
+                <ComboBoxItem Content="21:00"/>
+                <ComboBoxItem Content="22:00"/>
+                <ComboBoxItem Content="23:00"/>
+            </ComboBox>
+
+            <TextBlock Text="Thời lượng (giờ):" FontWeight="Bold" Foreground="White" />
+            <TextBox x:Name="txtDuration" Margin="0 0 0 10"
+                     Text="{Binding Duration}" TextChanged="txtDuration_TextChanged" />
+
+            <TextBlock Text="Giá tiền (VND):" FontWeight="Bold" Foreground="White" />
+            <TextBox x:Name="txtTotalPrice" Margin="0 0 0 20" IsReadOnly="True" />
+
+
+
+            <Button Content="Xác nhận đặt sân"
+                    Width="200"
+                    Height="40"
+                    Background="#2E8B57"
+                    Foreground="White"
+                    HorizontalAlignment="Center"
+                    Click="ConfirmBooking_Click"/>
+        </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>

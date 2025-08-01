@@ -1,0 +1,108 @@
+﻿<Window x:Class="SportBooking_WPF.Views.Tournament.UserTournamentWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Danh sách Giải đấu"
+        Height="600"
+        Width="1000"
+        Background="#F0F8FF"
+        WindowStartupLocation="CenterScreen">
+
+    <DockPanel Margin="10">
+
+        <!-- Tiêu đề + nút đơn đăng ký -->
+        <StackPanel DockPanel.Dock="Top" Margin="0 0 0 10">
+            <TextBlock Text="Danh sách Giải đấu"
+                       FontSize="26"
+                       FontWeight="Bold"
+                       Foreground="#2E8B57"
+                       HorizontalAlignment="Center"
+                       Margin="0 0 0 10"/>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Content="📄 Xem đơn đăng ký"
+            Click="btnViewMyRegistrations_Click"
+            Background="#4682B4"
+            Foreground="White"
+            FontWeight="Bold"
+            Width="160"
+            Height="35"
+            BorderBrush="#1C3F77"
+            Margin="0 0 10 0"/>
+
+                <Button Content="📬 Đơn tổ chức đã gửi"
+                        Click="btnViewMyTournamentRequests_Click"
+                        Background="#FFA500"
+                        Foreground="White"
+                        FontWeight="Bold"
+                        Width="180"
+                        Height="35"
+                        BorderBrush="#D2691E"
+                        Margin="0 0 10 0"/>
+
+                <Button Content="📝 Gửi đơn tạo giải đấu"
+            Click="btnCreateTournamentRequest_Click"
+            Background="#32CD32"
+            Foreground="White"
+            FontWeight="Bold"
+            Width="180"
+            Height="35"
+            BorderBrush="#228B22"/>
+            </StackPanel>
+        </StackPanel>
+
+        <!-- Danh sách giải đấu -->
+        <ScrollViewer>
+            <ItemsControl x:Name="icTournaments">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Border Margin="10"
+            Padding="10"
+            Background="White"
+            CornerRadius="10"
+            BorderBrush="Gray"
+            BorderThickness="1">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Image Source="{Binding ImageUrl}"
+                                       Width="100"
+                                       Height="100"
+                                       Margin="0 0 10 0"
+                                       Grid.Column="0"/>
+
+                                <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                                    <TextBlock Text="{Binding Title}"
+                                       FontSize="20"
+                                       FontWeight="Bold"
+                                       Foreground="#2E8B57"/>
+
+                                    <TextBlock Text="{Binding Sport.SportName}" Foreground="Gray"/>
+
+                                    <TextBlock>
+                                        <Run Text="Từ: "/>
+                                        <Run Text="{Binding StartDate, StringFormat='{}{0:dd/MM/yyyy}'}"/>
+                                        <Run Text=" - Đến: "/>
+                                        <Run Text="{Binding EndDate, StringFormat='{}{0:dd/MM/yyyy}'}"/>
+                                    </TextBlock>
+
+                                    <Button Content="Xem chi tiết"
+                                        Click="ViewDetails_Click"
+                                        Tag="{Binding}"
+                                        Width="120"
+                                        Margin="0 10 0 5"
+                                        Background="#3CB371"
+                                        Foreground="White"
+                                        FontWeight="Bold"
+                                        HorizontalAlignment="Left"/>
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+    </DockPanel>
+</Window>

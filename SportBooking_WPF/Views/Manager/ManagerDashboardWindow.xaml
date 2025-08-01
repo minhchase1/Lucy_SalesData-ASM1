@@ -1,0 +1,70 @@
+<Window x:Class="SportBooking_WPF.Views.Manager.ManagerDashboardWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Dashboard Quản lý" Height="500" Width="500"
+        WindowStartupLocation="CenterScreen">
+    <Grid Background="#2E8B57">
+        <Border CornerRadius="10" Background="White" 
+                VerticalAlignment="Center" HorizontalAlignment="Center"
+                Width="350" Padding="20">
+            <StackPanel>
+                <!-- Welcome Section -->
+                <StackPanel Margin="0,0,0,20">
+                    <TextBlock Text="Chào mừng," 
+                               FontSize="18" 
+                               Foreground="#2E8B57"
+                               HorizontalAlignment="Center"/>
+                    <TextBlock Text="QUẢN LÝ" 
+                               FontSize="24" 
+                               FontWeight="Bold"
+                               Foreground="#2E8B57"
+                               HorizontalAlignment="Center"/>
+                </StackPanel>
+
+                <!-- Dashboard Title -->
+                <TextBlock Text="DASHBOARD QUẢN LÝ" 
+                           FontSize="18" 
+                           FontWeight="Bold"
+                           Foreground="#2E8B57"
+                           HorizontalAlignment="Center" 
+                           Margin="0,0,0,20"/>
+
+                <!-- Action Buttons -->
+                <Button x:Name="BtnLogout" 
+                        Content="Đăng xuất" 
+                        Height="40" 
+                        Margin="0,0,0,10"
+                        Background="#2E8B57"
+                        Foreground="White"
+                        BorderBrush="#2E8B57" Click="BtnLogout_Click"
+                        />
+
+                <Button x:Name="BtnUserManagement" 
+                        Content="Quản lý người dùng" 
+                        Height="40" 
+                        Margin="0,0,0,10"
+                        Background="#2E8B57"
+                        Foreground="White"
+                        BorderBrush="#2E8B57"
+                        Click="BtnUserManagement_Click"/>
+
+                <Button x:Name="BtnTournamentManagement" 
+                        Content="Quản lý giải đấu" 
+                        Height="40" 
+                        Margin="0,0,0,10"
+                        Background="#2E8B57"
+                        Foreground="White"
+                        BorderBrush="#2E8B57" Click="BtnTournamentManagement_Click"
+                        />
+
+                <Button x:Name="BtnRevenueReport" 
+                        Content="Báo cáo doanh thu" 
+                        Height="40"
+                        Background="#2E8B57"
+                        Foreground="White"
+                        BorderBrush="#2E8B57"
+                        Click="BtnRevenueReport_Click"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>
